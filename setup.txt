@@ -1,0 +1,157 @@
+# Install neccessaries
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get install -y gedit
+sudo apt-get install -y composer
+sudo apt-get install -y software-properties-common
+sudo apt install -y pwgen
+sudo apt install -y dbus-x11
+sudo apt install -y openjdk-11-jdk
+sudo apt install -y openssh-server
+
+##
+sudo apt-get -y update
+sudo add-apt-repository -y ppa:ondrej/php
+sudo apt-get -y update
+sudo apt-get install -y curl wget gnupg
+
+##
+sudo apt install -y nginx
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTPS'
+sudo ufw allow OpenSSH
+sudo ufw allow 
+sudo ufw enable
+
+####################### Install MySQL
+sudo apt install -y mysql-server
+sudo mysql_secure_installation
+##
+sudo mysql
+set global validate_password.policy = LOW;
+set global validate_password.length = 0;
+set global validate_password.mixed_case_count = 0;
+set global validate_password.number_count = 0;
+set global validate_password.special_char_count = 0;
+CREATE DATABASE magento;
+CREATE USER 'magento'@'%' IDENTIFIED WITH mysql_native_password BY '12345678';
+GRANT ALL ON magento.* TO 'magento'@'%';
+exit
+
+
+#==================================================================Install php==========================================#######################################
+sudo apt install -y php8.3-fpm php8.3-mysql
+sudo mkdir /var/www/magento.com
+sudo chown -R app:app /var/www/
+sudo apt-get install -y php8.3-common php8.3-xml php8.3-curl php8.3-bcmath php8.3-intl php8.3-gd php8.3-zip php8.3-mysql php8.3-soap
+
+#Install ElasticSearch8#####################################################################################==========================================#########################
+wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+
+sudo apt-get install -y apt-transport-https
+
+echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list
+
+sudo apt-get update && sudo apt-get install elasticsearch=7.17.0
+
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable elasticsearch.service
+sudo systemctl start elasticsearch.service
+
+### Install magento ##################################################################################==========================================#######################################
+## ------------------------------Remember to add magento.com to /etc/hosts next to localhost!!!!!!
+cd /var/www/magento.com
+sudo composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.7-p2 magento
+cd /var/www/magento.com/magento
+sudo find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} +
+sudo find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} +
+sudo chown -R :www-data .
+sudo chmod u+x bin/magento
+##
+sudo gedit /etc/nginx/sites-available/magento.com  ### Copy server block inside magento config sample
+# --- - -- - -- -- - -- - - - - 
+upstream fastcgi_backend {
+   server   unix:/var/run/php/php8.3-fpm.sock;
+}
+server {
+   listen 80;
+   server_name magento.com;
+   set $MAGE_ROOT /var/www/html/magento;
+   set $MAGE_DEBUG_SHOW_ARGS 0;
+   include /var/www/html/magento/nginx.conf.sample;
+}
+# - - -- - - - -- - - 
+sudo ln -s /etc/nginx/sites-available/magento.com /etc/nginx/sites-enabled/
+sudo unlink /etc/nginx/sites-enabled/default
+sudo nginx -t
+sudo systemctl reload nginx
+
+#####/admin_l1ooki1
+sudo php bin/magento setup:install \
+--base-url=https://magento.test \
+--db-host=db \
+--db-name=magento \
+--db-user=magento \
+--db-password=magento \
+--admin-firstname=Admin \
+--admin-lastname=Admin \
+--admin-email=admin@admin.com \
+--admin-user=admin \
+--admin-password=admin123 \
+--language=en_US \
+--currency=USD \
+--timezone=America/Chicago \
+--use-rewrites=1 \
+--search-engine=elasticsearch7 \
+--elasticsearch-host=elasticsearch \
+--elasticsearch-port=9200 \
+--backend-frontname=admin
+
+
+chown -R $USER:$USER /var/www
+composer config -g http-basic.repo.magento.com  9d2e2e29635461712729a022596aedd2  90ac4448ae1be4c36f1b397197ee2717
+####################################################################################################==========================================####################################### 
+#Install phpMyAdmin
+sudo apt update
+sudo apt install -y phpmyadmin
+# 
+sudo ln -s /usr/share/phpmyadmin /var/www/magento.com/magento/pub/hideonbush
+
+pwgen -s 32 1  ## Copy
+sudo gedit /etc/phpmyadmin/conf.d/pma_secure.php
+
+### Add this to pma_secure.php file (Optional)
+<?php
+
+# PhpMyAdmin Settings
+# This should be set to a random string of at least 32 chars
+$cfg['blowfish_secret'] = 'CHANGE_THIS_TO_A_STRING_OF_32_RANDOM_CHARACTERS';  ## Paste
+
+$i=0;
+$i++;
+
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['Servers'][$i]['AllowRoot'] = false;
+
+?>
+#########################
+
+openssl passwd  ##Copy
+sudo gedit /etc/nginx/pma_pass   ## Write this in file: faker:#paste  (format is username:encryptedpassword)
+# ---------------- Add this in module file
+location ^~ /hideonbush/ {
+    auth_basic "Admin Login";
+    auth_basic_user_file /etc/nginx/pma_pass;
+
+    location ~ \.php$ {
+            include snippets/fastcgi-php.conf;
+            fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+    }
+}
+# ------------------------------------------------####
+sudo nginx -t
+sudo systemctl reload nginx
+
+
+
