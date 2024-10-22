@@ -32,7 +32,11 @@ services:
     volumes:
       - dbdata:/var/lib/mysql
 
-  
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+
 
   
   elasticsearch:
