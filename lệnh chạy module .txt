@@ -1,0 +1,5 @@
+bin/magento module:enable Mongcake_VcbCurrency
+bin/magento setup:upgrade
+bin/magento cache:clean
+bin/magento module:status
+bin/magento cache:flush
