@@ -1,0 +1,6 @@
+bin/start --no-dev
+bin/copytocontainer --all
+bin/mysql < dump.sql
+bin/magento app:config:import
+bin/setup-domain yoursite.test
+bin/restart
