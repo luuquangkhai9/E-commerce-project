@@ -67,6 +67,12 @@ services:
       - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       ## Uncomment to increase the virtual memory map count
       #- "max_map_count=262144"
+    deploy:
+      resources:
+        limits:
+          memory: 1.5g    
+        reservations:
+          memory: 512m
 
 volumes:
   appdata:

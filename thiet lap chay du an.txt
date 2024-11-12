@@ -2,5 +2,12 @@ bin/start --no-dev
 bin/copytocontainer --all
 bin/mysql < dump.sql
 bin/magento app:config:import
-bin/setup-domain yoursite.test
-bin/restart
+bin/setup-domain magento.test
+bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth Magento_TwoFactorAuth
+bin/magento setup:di:compile
+bin/magento cache:flush
+
+
+mật khẩu admin : 
+user: john.smith
+password: password123

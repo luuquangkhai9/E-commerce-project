@@ -8,7 +8,6 @@ source env/db.env
 # shellcheck source=../env/elasticsearch.env
 source env/elasticsearch.env
 source env/magento.env
-# shellcheck source=../env/rabbitmq.env
 
 bin/clinotty bin/magento setup:install \
   --db-host="$MYSQL_HOST" \
