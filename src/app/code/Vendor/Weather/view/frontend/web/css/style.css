@@ -1,0 +1,138 @@
+.weather-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Thay đổi font chữ */
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #2d68c4, #2d85c4, #50b7e7); /* Thay đổi màu nền */
+    color: white;
+    border-radius: 15px; /* Bo góc nhẹ hơn */
+    padding: 20px;
+}
+
+.weather-container h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Current Weather */
+.current-weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.current-weather-info {
+    text-align: left;
+    color: #fff;
+    width: 50%; /* Giới hạn chiều rộng */
+}
+
+.location{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.location-icon{
+    display: none; /* Ẩn icon location */
+}
+
+.city-country {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.current-date {
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.current-temp {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    line-height: 1em;
+}
+
+.current-temp-range {
+    display: none;
+}
+
+.current-stats {
+    display: none; /* Ẩn current-stats */
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-icon{
+    width: 32px;
+    height: auto;
+    background: #fff3;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.stat-value {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.current-weather-icon {
+    width: 40%; /* Điều chỉnh chiều rộng */
+    text-align: right;
+}
+.current-weather-icon img {
+    width: auto;
+    height: 120px;
+}
+
+/* Forecast Weather */
+.forecast-weather {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: transparent; /* Loại bỏ màu nền */
+    border-radius: 10px;
+}
+
+.forecast-day {
+    background-color: #4675C0;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    width: 15%;
+    box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.5);
+}
+
+.day-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+.day-temp {
+    font-size: 1em;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.forecast-day img{
+    width: 48px;
+    height: auto;
+    background: none; /* Loại bỏ background */
+    border-radius: 0;
+    padding: 0;
+}
+
+.forecast-day .day-temp-label {
+    font-size: 0.8em;
+}
