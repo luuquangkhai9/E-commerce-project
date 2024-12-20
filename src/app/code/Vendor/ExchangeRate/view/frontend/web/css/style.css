@@ -1,0 +1,64 @@
+.exchange-rate-container {
+    overflow-x: auto; /* Thêm scroll ngang nếu bảng quá rộng */
+}
+
+.exchange-rate table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+}
+
+.exchange-rate h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.exchange-rate table th,
+.exchange-rate table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.exchange-rate table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.exchange-rate table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* CSS cho cột Mã - Tăng độ ưu tiên bằng ID */
+#exchange-rate-table th:first-child,
+#exchange-rate-table td:first-child {
+    width: 50px; /* Giữ nguyên width cố định */
+    max-width: 80px; /* Giữ nguyên max-width */
+    overflow: hidden; /* Giữ nguyên overflow */
+    text-overflow: ellipsis; /* Giữ nguyên text-overflow */
+    word-wrap: break-word; /* Giữ nguyên word-wrap */
+}
+
+.exchange-rate table th:nth-child(2),
+.exchange-rate table td:nth-child(2) {
+    width: 100px; /* Cột Mua */
+    text-align: right;
+    white-space: nowrap;
+}
+
+.exchange-rate table th:nth-child(3),
+.exchange-rate table td:nth-child(3) {
+    width: 130px; /* Cột Chuyển khoản */
+    text-align: right;
+    white-space: nowrap;
+}
+
+.exchange-rate table th:nth-child(4),
+.exchange-rate table td:nth-child(4) {
+    width: 100px; /* Cột Bán */
+    text-align: right;
+    white-space: nowrap;
+}
