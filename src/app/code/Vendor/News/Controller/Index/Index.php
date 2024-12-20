@@ -26,7 +26,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {   
-        $categoryId = 9; // Category ID you want to change
+        $categoryId = 49; // Category ID you want to change
         $newTargetPath = 'tintuc/index/index';
         
         try {
