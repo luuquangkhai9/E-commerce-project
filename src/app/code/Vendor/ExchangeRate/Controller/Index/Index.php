@@ -26,7 +26,7 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {   
-        $categoryId = 10; // Category ID you want to change
+        $categoryId = 48; // Category ID you want to change
         $newTargetPath = 'tygia/index/index';
         
         try {
