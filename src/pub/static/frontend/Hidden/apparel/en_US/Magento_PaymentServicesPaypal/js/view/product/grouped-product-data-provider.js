@@ -1,0 +1,1 @@
+/var/www/html/vendor/magento/module-payment-services-paypal/view/frontend/web/js/view/product/grouped-product-data-provider.js

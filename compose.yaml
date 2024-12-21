@@ -72,7 +72,7 @@ services:
         limits:
           memory: 1.5g    
         reservations:
-          memory: 512m
+          memory: 128m
 
 volumes:
   appdata:

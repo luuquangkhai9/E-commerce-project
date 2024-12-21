@@ -1,0 +1,1 @@
+/var/www/html/vendor/magento/module-payment-services-paypal/view/base/web/js/view/errors/response-error.js

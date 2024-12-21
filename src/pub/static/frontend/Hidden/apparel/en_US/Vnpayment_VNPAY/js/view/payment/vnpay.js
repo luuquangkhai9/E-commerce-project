@@ -1,0 +1,1 @@
+/var/www/html/app/code/Vnpayment/VNPAY/view/frontend/web/js/view/payment/vnpay.js

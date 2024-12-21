@@ -354,12 +354,19 @@ return [
         'Magento_Wishlist' => 1,
         'Magento_WishlistAnalytics' => 1,
         'Magento_WishlistGraphQl' => 1,
+        'Boolfly_ZaloPay' => 1,
         'Hidden_Apparel' => 1,
         'Hidden_Base' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeCustomerBalance' => 1,
         'PayPal_BraintreeGiftCardAccount' => 1,
         'PayPal_BraintreeGiftWrapping' => 1,
-        'PayPal_BraintreeGraphQl' => 1
+        'PayPal_BraintreeGraphQl' => 1,
+        'Uet_MomoWallet' => 1,
+        'Uet_ZaloPayment' => 1,
+        'Vendor_ExchangeRate' => 1,
+        'Vendor_News' => 1,
+        'Vendor_Weather' => 1,
+        'Vnpayment_VNPAY' => 1
     ]
 ];

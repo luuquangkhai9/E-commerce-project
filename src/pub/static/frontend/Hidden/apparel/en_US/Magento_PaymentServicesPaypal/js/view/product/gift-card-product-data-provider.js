@@ -1,0 +1,1 @@
+/var/www/html/vendor/magento/module-payment-services-paypal/view/frontend/web/js/view/product/gift-card-product-data-provider.js

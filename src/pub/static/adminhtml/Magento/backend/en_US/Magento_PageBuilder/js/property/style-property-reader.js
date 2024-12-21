@@ -1,0 +1,1 @@
+/var/www/html/vendor/magento/module-page-builder/view/adminhtml/web/js/property/style-property-reader.js

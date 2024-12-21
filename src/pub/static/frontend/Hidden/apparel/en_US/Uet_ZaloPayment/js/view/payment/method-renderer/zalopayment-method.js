@@ -1,0 +1,1 @@
+/var/www/html/app/code/Uet/ZaloPayment/view/frontend/web/js/view/payment/method-renderer/zalopayment-method.js
