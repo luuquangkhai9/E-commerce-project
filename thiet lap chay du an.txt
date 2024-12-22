@@ -1,13 +1,11 @@
 bin/start --no-dev
 bin/copytocontainer --all
-bin/mysql < dump.sql
+bin/mysql < database.sql
 bin/magento app:config:import
-bin/setup-domain magento.test
+bin/setup-domain yeah-ecom.id.vn
 bin/magento module:disable Magento_AdminAdobeImsTwoFactorAuth Magento_TwoFactorAuth
-bin/magento setup:di:compile
+bin/magento indexer:reindex
 bin/magento cache:flush
 
 
-mật khẩu admin : 
-user: john.smith
-password: password123
+
