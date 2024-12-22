@@ -1,0 +1,1 @@
+/var/www/html/app/code/Uet/MomoWallet/view/frontend/web/js/action/redirect-on-success.js

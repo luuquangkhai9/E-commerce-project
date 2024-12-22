@@ -1,0 +1,1 @@
+/var/www/html/app/code/Bss/CookieNotice/view/frontend/web/js/cookienotice.js

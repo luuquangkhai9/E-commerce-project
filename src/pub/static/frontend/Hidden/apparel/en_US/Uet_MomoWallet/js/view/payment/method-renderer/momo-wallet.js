@@ -1,0 +1,1 @@
+/var/www/html/app/code/Uet/MomoWallet/view/frontend/web/js/view/payment/method-renderer/momo-wallet.js

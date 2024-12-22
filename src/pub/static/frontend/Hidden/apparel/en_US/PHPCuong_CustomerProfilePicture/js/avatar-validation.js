@@ -1,0 +1,1 @@
+/var/www/html/app/code/PHPCuong/CustomerProfilePicture/view/frontend/web/js/avatar-validation.js
