@@ -1,1 +1,3 @@
-Trang thương mại điện tử của nhóm 9
+Trang thương mại điện tử bán trang sức và thiết kế cao cấp
+
+Thông tin chi dự án nằm trong Tailieu.zip
