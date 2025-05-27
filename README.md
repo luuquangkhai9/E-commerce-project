@@ -18,11 +18,11 @@ Dự án được xây dựng bằng các công nghệ sau:
 Cấu trúc chính của dự án bao gồm các tệp và thư mục sau:
 
 * `src/`: Chứa mã nguồn chính của ứng dụng PHP.
-* `template/`: Có thể chứa các file mẫu (template) cho giao diện.
-* `bin/`, `env/`: Có thể chứa các file thực thi hoặc biến môi trường.
+* `template/`: Chứa các file mẫu (template) cho giao diện.
+* `bin/`, `env/`: Chứa các file thực thi hoặc biến môi trường.
 * `compose.yaml`, `compose.dev.yaml`, `compose.healthcheck.yaml`: Các file cấu hình Docker Compose để thiết lập và chạy môi trường dự án.
 * `database.sql`: Chứa mã SQL để tạo cấu trúc cơ sở dữ liệu và có thể là dữ liệu mẫu.
-* `Makefile`: Có thể chứa các lệnh để tự động hóa các tác vụ (build, run,...).
+* `Makefile`: Chứa các lệnh để tự động hóa các tác vụ (build, run,...).
 * `*.txt`: Các file hướng dẫn (`lệnh chạy module .txt`, `thiet lap chay du an.txt`, `docker stop docker ps.txt`) cung cấp thông tin cụ thể về cách chạy và thiết lập.
 * `Tài_liệu.zip`: Tài liệu liên quan đến dự án.
 
