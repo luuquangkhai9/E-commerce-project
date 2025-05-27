@@ -71,7 +71,9 @@ Cấu trúc chính của dự án bao gồm các tệp và thư mục sau:
 * *Lưu Quang Khải*
 * *Hồ Nguyên Lượng*
 * *Nguyễn Thị Thu Trang*
+  
 Nhóm sinh viên Trường Đại học Công nghệ – Đại học Quốc gia Hà Nội, thực hiện trong khuôn khổ học phần Thương mại điện tử.
+
 ## Giấy phép
 
 Dự án này không có giấy phép được chỉ định.
